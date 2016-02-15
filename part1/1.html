@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this is html5 vido demo</title>
+</head>
+<body>
+  <h1>html5 video 支持视频格式</h1>
+  <ul>
+	<li>Ogg</li>
+	<li>MPEG4</li>
+	<li>WebM</li>
+  </ul>
+  <video id="video1" src="http://www.w3school.com.cn/i/movie.ogg" controls="controls" poster="http://www.w3school.com.cn/i/table_bg_html5.gif" >
+  </video>  
+  <p>
+	  <button id="btnPlay">播放</button> 
+	  <button id="btnPause">暂停</button>
+	  <button id="btnRePlay">重新播放</button>
+	  <button id="btnMute">静音</button>
+	  <button id="btnVolumeAdd">增加音量</button>
+	  <button id="btnVolumeLess">减少音量</button>
+  </p>
+  <p>
+  	自定义播放控制条需要<br>
+  	media.paused (是否暂时)
+  	media.defaultPlaybackRate
+  	media.playbackRate
+  	media.ended (是否播放结束)
+  	media.play()
+  	media.volume (0.1~1  可以通++或--此属性)
+  	media.muted (true|false)
+  	media.currentTime (当前播放的时间)
+  	media.pause()
+  	media.play (是否播放)
+  	media.requestFullscreen (是否全屏)
+  </p>
+  <hr>
+  <p>add video attribute width and height</p>
+  <video width="100" height="100" src="http://www.w3school.com.cn/i/movie.ogg" controls="controls">
+  </video>  
+  <hr>
+  <p>为了保证多个浏览器对视频支持，可以在video中添加多个source
+  如：IE只支持MP4</p>
+	<video width="320" height="240" controls="controls">
+	  <source src="http://www.w3school.com.cn/i/movie.ogg" type="video/ogg">
+	  <source src="http://www.w3school.com.cn/i/movie.mp4" type="video/mp4">
+	  Your brower does not support the video tag.
+	</video>
+	<pre>
+	  注：video attribute
+	  autoplay(视频准备完成自动播放),controls(播放工具栏),height(高度),width(宽度),loop(循环播入),muted(播入视频静音),<br>
+	  poster(视频下载时显示的图像,播放前显示的图片),<br>
+	  preload(视频准备),src(视频源)
+	</pre>
+</body>
+ </body>
+ <script>
+   window.onload=function(){
+	  var v1 = document.getElementById('video1');
+	  v1.onended = function(){
+	  	alert('thins');
+	  }
+	  v1.onpause = function(){
+	  	alert('pause');
+	  }
+	  v1.onplay = function(){
+	  	alert('play');
+	  }
+	  v1.onplaying = function(){
+	  	alert('playing');
+	  }
+	  v1.onabort = function(){
+	  	alert('abort')
+	  }
+	  var btnPlay = document.getElementById('btnPlay');
+	  var btnPause = document.getElementById('btnPause');
+	  btnPlay.onclick=function(){
+	  	v1.play(); 
+	  }
+	  btnPause.onclick = function(){
+  		v1.pause();
+	  }
+	  var btnRePlay = document.getElementById('btnRePlay');
+	  btnRePlay.onclick = function(){
+	  	v1.pause();
+	  	v1.currentTime = 0;
+	  	v1.play();
+	  }
+	  var btnMute = document.getElementById('btnMute');
+	  btnMute.onclick = function(){
+	  	v1.muted = true;
+	  }
+	  var btnVolumeAdd = document.getElementById('btnVolumeAdd');
+	  var btnVolumeLess = document.getElementById('btnVolumeLess');
+	  btnVolumeAdd.onclick = function(){
+	  	v1.muted = false;
+	  	var result=v1.volume;
+	  	var result = (result+=0.1);
+	  	if (result>1) {return;}
+	  	v1.volume = result;
+	  }
+	  btnVolumeLess.onclick = function(){
+	  	if (v1.muted) {return;}	
+	  	var result = v1.volume;
+	  	var result = (result-=0.1);
+	  	if (result < 0.1) {
+	  		v1.muted = true;
+	  		return;
+	  	}
+	  	v1.volume = result;
+  		v1.muted = false;
+	  }
+   }
+
+ </script>
+</html>
+
