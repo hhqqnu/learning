@@ -59,20 +59,21 @@
    window.onload=function(){
 	  var v1 = document.getElementById('video1');
 	  v1.onended = function(){
-	  	alert('thins');
+	  	console.log('thins');
 	  }
 	  v1.onpause = function(){
-	  	alert('pause');
+	  	console.log('pause');
 	  }
 	  v1.onplay = function(){
-	  	alert('play');
+	  	console.log('play');
 	  }
 	  v1.onplaying = function(){
-	  	alert('playing');
+	  	console.log('playing');
 	  }
 	  v1.onabort = function(){
-	  	alert('abort')
+	  	console.log('abort');
 	  }
+	  //this is custom video play manage
 	  var btnPlay = document.getElementById('btnPlay');
 	  var btnPause = document.getElementById('btnPause');
 	  btnPlay.onclick=function(){
@@ -91,6 +92,7 @@
 	  btnMute.onclick = function(){
 	  	v1.muted = true;
 	  }
+	  //this is custom video volume
 	  var btnVolumeAdd = document.getElementById('btnVolumeAdd');
 	  var btnVolumeLess = document.getElementById('btnVolumeLess');
 	  btnVolumeAdd.onclick = function(){
