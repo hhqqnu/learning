@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this is html5 canvas demo</title>
+  <style>
+	canvas{
+		border: 1px solid #ccc;
+	}
+  </style>
+</head>
+<body>
+	<h3>demo1(画矩形)</h3>
+	<canvas id="myCanvas1" width="200" height="100">
+		Your browser does support canvas tag.
+	</canvas>	
+	<hr>
+	<h3>demo2(画线条)</h3>
+	<canvas id="myCanvas2" width="200" height="100">
+		Your browser does support canvas tag.
+	</canvas>	
+	<hr>
+	<h3>demo3(画圆)</h3>
+	<canvas id="myCanvas3" width="200" height="100">
+		Your browser does support canvas tag.
+	</canvas>	
+	<hr>
+	<h3>demo4</h3>
+	<canvas id="myCanvas4" width="400" height="300">
+		You browser does support canvas tag.
+	</canvas>
+	<hr>
+	<h3>demo5(渐变)</h3>
+	<canvas id="myCanvas5" width="200" height="100">
+		Your browser does support canvas tag.
+	</canvas>
+	<hr>
+	<h3>demo6(画图)</h3>
+	<canvas id="myCanvas6" width="200" height="100">
+		Your browser does support canvas tag.
+	</canvas>
+	<hr>
+	<h3>demo7(绿色的菊花)</h3>
+	<canvas id="myCanvas7" width="400" height="300">
+		Your browser does support canvas tag.
+	</canvas>
+	<footer>
+		<p>
+			<ul>
+				<li>context.fill() 填充方法</li>
+				<li>context.stroke() 绘制边框</li>
+				<li>context.fillStyle 填充样式</li>
+				<li>context.strokeStyle 边框样式</li>
+				<li>context.lineWidth 图形边框宽度</li>
+			</ul>
+		</p>
+		<p>学习可参照<a href="http://www.cnblogs.com/tim-li/archive/2012/08/06/2580252.html" target="_blank">链接</a></p>
+	</footer>
+</body>
+<script>
+	var c1 = document.getElementById('myCanvas1'),
+		cxt1 = c1.getContext('2d');
+	cxt1.fillStyle = "#FF0000";
+	cxt1.fillRect(0,0,150,75);
+
+	var c2 = document.getElementById('myCanvas2'),cxt2 = c2.getContext('2d');
+	cxt2.moveTo(10,10);
+	cxt2.lineTo(150,50);
+	cxt2.lineTo(10,50);
+	cxt2.stroke();
+
+	var c3 = document.getElementById('myCanvas3'),cxt3 = c3.getContext('2d');
+	cxt3.fillStyle='#FF0000';
+	cxt3.beginPath();
+	cxt3.arc(70,18,15,0,Math.PI * 2,true);
+	cxt3.closePath();
+	cxt3.fill();
+
+	var c4 = document.getElementById('myCanvas4'),cxt4 = c4.getContext('2d');
+	cxt4.fillStyle='#EEEEFF';
+	cxt4.fillRect(0,0,400,300);
+	var n = 0;
+	cxt4.fillStyle = 'rgba(255,0,0,0.25)';
+	for(var i=0;i<10;i++){
+		cxt4.beginPath();
+		cxt4.arc(i*25,i*25,i*10,0,Math.PI*2,true);
+		cxt4.closePath();
+		cxt4.fill();
+	}
+
+	var c5 = document.getElementById('myCanvas5'),cxt5 = c5.getContext('2d');
+	var grd = cxt5.createLinearGradient(0,0,175,50);
+	grd.addColorStop(0,'#FF0000');
+	grd.addColorStop(1,'#00FF00');
+	cxt5.fillStyle = grd;
+	cxt5.fillRect(0,0,175,50);
+
+	//http://www.bz55.com/uploads1/allimg/120512/1_120512102347_1.jpg
+	var c6 = document.getElementById('myCanvas6'),cxt6 = c6.getContext('2d');
+	var img = new Image();
+	img.src = 'http://www.bz55.com/uploads1/allimg/120512/1_120512102347_1.jpg';
+	img.onload = function(){
+		//context.drawImage(image,x,y) x:图像的X坐标 y:图像的Y坐标
+		//context.drawImage(image,x,y,w,h) w:图像的宽度 h:图像高度
+		//context.drawImage(image,sx,sy,sw,sh,dx,dy,dw,dh)
+		//image:图片资源
+		//sx:图像上的X坐标
+		//sy:图像上的y坐标
+		//sw:图像的宽度
+		//sh:图像的高度
+		//dx:画布的x坐标
+		//dy:画布的y坐标
+		//dw:画布的宽度
+		//dh:画布的高度
+		cxt6.drawImage(img,0,0,img.width,img.height,0,0,200,100);
+	}
+
+	var c7 = document.getElementById('myCanvas7'),cxt7 = c7.getContext('2d');
+	cxt7.fillStyle = '#EEEEFF';
+	cxt7.fillRect(0,0,400,300);
+	var n=0,dx=150,dy=150,s=100;
+	cxt7.beginPath();
+	cxt7.fillStyle = 'rgb(100,255,100)';
+	cxt7.strokeStyle = 'rgb(0,0,100)';
+	var x = Math.sin(0),y=Math.cos(0);
+	var dig = Math.PI / 15 * 11;
+	for(var i =0 ;i<30;i++){
+		var x = Math.sin(i * dig);
+		var y = Math.cos(i * dig);
+		cxt7.lineTo(dx+x*s,dy+y*s);
+	}
+	cxt7.closePath();
+	cxt7.fill();
+	cxt7.stroke();
+
+
+</script>
+</html>

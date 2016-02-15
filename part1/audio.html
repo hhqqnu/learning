@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this is html5 audio demo</title>
+</head>
+<body>
+  <h3>demo1</h3>
+  <audio src="http://yige.org/static/images/song.ogg" controls>
+	Your browser does not support the audio tag.
+  </audio>
+  <hr>
+  <h3>demo2(多个类型音频源，支持多个浏览器)</h3>
+  <audio controls>
+  <source src="http://yige.org/static/images/song.ogg" type="audio/ogg">
+  <source src="http://yige.org/static/images/song.mp3" type="audio/mpeg">
+	Your browser does not support the audio tag.
+  </audio>
+  <hr>
+  <pre>
+  	audio标签属性<br>
+  	autoplay(自动播放)<br>	
+  	controls(播放控件) <br>
+  	loop(循环播放) <br>
+  	preload (提前加载，就是当页面加载时就进行加载，当此属性出现时，autoplay将无效) <br>
+  	src (音频源)
+  </pre>
+</body>
+</html>
