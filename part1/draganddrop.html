@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this is html5 drag and drop demo</title>
+  <style type="text/css">
+  	#div1{
+  		width: 500px;height: 70px;padding: 10px;border: 1px solid #aaa;
+  	}
+  	#img1{
+  		width: 336px;
+  		height: 69px;
+  	}
+  	#div2,#div3{
+  		float: left;
+  		width: 100px;
+  		height: 35px;
+  		margin: 10px;
+  		padding: 10px;
+  		border: 1px solid #aaa;
+  	}
+  </style>
+</head>
+<body>
+	<h3>demo1</h3>
+	<div id="div1"></div>
+	<img src="http://www.w3school.com.cn/i/w3school_banner.gif" draggable="true" id="drag1">
+	<hr/>
+	<h3>demo2</h3>
+	<div id="div2">
+		<img id="img2" draggable="true" src="http://www.w3school.com.cn/i/w3school_logo_black.gif">
+	</div>
+	<div id="div3"></div>
+</body>
+<script type="text/javascript">
+	var div1 = document.getElementById('div1'),
+		img1 = document.getElementById('drag1');
+	div1.ondrop=function drop(ev){
+		ev.preventDefault();
+		console.log('ondrop');
+		var data=ev.dataTransfer.getData("Text");
+		ev.target.appendChild(document.getElementById(data));
+	}
+	div1.ondragover = function(ev){
+		ev.preventDefault();
+		console.log('ondragover');
+	}
+	img1.ondragstart = function(ev){
+		console.log('ondragstart');
+		ev.dataTransfer.setData('Text',ev.target.id);
+	}
+
+
+	var div2 = document.getElementById('div2'),div3 = document.getElementById('div3');
+	var img2 = document.getElementById('img2');
+	img2.ondragstart = function(ev){
+		console.log('img2 drap start');
+		ev.dataTransfer.setData('Text',ev.target.id);
+	}
+	var ondrop = function(ev){ ev.preventDefault();
+		var data = ev.dataTransfer.getData('Text');
+		ev.target.appendChild(document.getElementById(data));
+	}
+	var ondragover = function(ev){
+		ev.preventDefault();
+	}
+	div2.ondragover = ondragover;
+	div3.ondragover = ondragover;
+	div2.ondrop = ondrop;
+	div3.ondrop = ondrop;
+</script>
+</html>

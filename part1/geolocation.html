@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this is html5 location demo5</title>
+</head>
+<body>
+  <div id="div1"></div>  
+  <label>Choose a browser from this list:
+    <input list="browsers" name="myBrowser"/>
+  </label>
+  <datalist id="browsers">
+    <option value="Chrome" />
+    <option value="Firefox" />
+    <option value="Internet Explorer" />
+    <option value="Opera" />
+    <option value="Safari" />
+  </datalist>
+</body>
+<script type="text/javascript">
+  var div1 = document.getElementById('div1');
+  function getLocation(){
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    }else{
+      div1.innerHTML='Geolocation is not supported by this browser.';
+    }
+  }
+  function showPosition(position){
+    div1.innerHTML = 'Latitude:' + position.coords.latitude +
+      '<br/> Longitude:'+position.coords.longitude;
+  }
+</script>
+</html>
