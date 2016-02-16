@@ -44,17 +44,23 @@
 	<canvas id="myCanvas7" width="400" height="300">
 		Your browser does support canvas tag.
 	</canvas>
+  <p>
+      <ul>
+        <li>context.fill() 填充方法</li>
+        <li>context.stroke() 绘制边框</li>
+        <li>context.fillStyle 填充样式</li>
+        <li>context.strokeStyle 边框样式</li>
+        <li>context.lineWidth 图形边框宽度</li>
+      </ul>
+    </p>
+    <p>学习可参照<a href="http://www.cnblogs.com/tim-li/archive/2012/08/06/2580252.html" target="_blank">链接</a></p>
+  <hr>
+  <h3>demo8(画字)</h3>
+  <canvas id="myCanvas8" width="200" height="100"></canvas>
 	<footer>
 		<p>
-			<ul>
-				<li>context.fill() 填充方法</li>
-				<li>context.stroke() 绘制边框</li>
-				<li>context.fillStyle 填充样式</li>
-				<li>context.strokeStyle 边框样式</li>
-				<li>context.lineWidth 图形边框宽度</li>
-			</ul>
-		</p>
-		<p>学习可参照<a href="http://www.cnblogs.com/tim-li/archive/2012/08/06/2580252.html" target="_blank">链接</a></p>
+      注：<a href="http://www.runoob.com/tags/ref-canvas.html" target="_blank">html5学习链接</a>  
+    </p>
 	</footer>
 </body>
 <script>
@@ -89,11 +95,24 @@
 	}
 
 	var c5 = document.getElementById('myCanvas5'),cxt5 = c5.getContext('2d');
-	var grd = cxt5.createLinearGradient(0,0,175,50);
+	var grd = cxt5.createLinearGradient(0,0,175,0);
 	grd.addColorStop(0,'#FF0000');
 	grd.addColorStop(1,'#00FF00');
 	cxt5.fillStyle = grd;
-	cxt5.fillRect(0,0,175,50);
+	cxt5.fillRect(0,0,175,30);
+
+  var grd1 = cxt5.createLinearGradient(0,0,175,0);
+  grd1.addColorStop(0,'#FF0000');
+  grd1.addColorStop(1,'white');
+  cxt5.fillStyle = grd1;
+  cxt5.fillRect(0,35,175,30);
+
+  var grd2 = cxt5.createRadialGradient(75,50,5,90,60,100);
+  grd2.addColorStop(0,'red');
+  grd2.addColorStop(1,'white');
+  cxt5.fillStyle = grd2;
+  cxt5.fillRect(0,70,175,30);
+
 
 	//http://www.bz55.com/uploads1/allimg/120512/1_120512102347_1.jpg
 	var c6 = document.getElementById('myCanvas6'),cxt6 = c6.getContext('2d');
@@ -133,6 +152,9 @@
 	cxt7.fill();
 	cxt7.stroke();
 
-
+  var c8 = document.getElementById('myCanvas8'),cxt8 = c8.getContext('2d');
+  cxt8.font="20px Arial";
+  cxt8.fillText("CANVAS",10,50);
+  cxt8.strokeText("CANVAS",10,80);
 </script>
 </html>
