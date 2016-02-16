@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this is html5 input demo</title>
+</head>
+<body>
+	<p>color:<input type="color"></p>  
+	<p>date: <input type="date"></p>
+	<p>datetime: <input type="datetime"></p>
+	<p>datetime-local: <input type="datetime-local"></p>
+	<p>email: <input type="email"></p>
+	<p>month: <input type="month"></p>
+	<p>number: <input type="number"></p>
+	<p>range: <input type="range" min="1" max="10" step="0.2"></p>
+	<p>search: <input type="search"></p>
+	<p>tel: <input type="tel"></p>
+	<p>time: <input type="time"></p>
+	<p>url: <input type="url"></p>
+	<p>week: <input type="week"></p>
+	<p>datalist: <br>
+		<input type="text" list="browsers"/>
+		<datalist id="browsers">
+			<option value="IE" />
+			<option value="Firefox" />
+			<option value="Chrome" />
+			<option value="Opera" />
+			<option value="Safari" />
+		</datalist>
+	</p>
+	<p>
+		output:
+		<form oninput="x.value=parseInt(a.value,10)+parseInt(b.value,10)">
+			<input type="range" id="a" value="50">+
+			<input type="number" id="b" value="50">=
+			<output id="x" for="a b"></output>
+		</form>
+	</p>
+	<hr>
+	<div>
+		<h3>autocomplete</h3>
+		<form action="http://www.runoob.com/try/demo_source/demo-form.php" autocomplete="on">
+			First name: <input type="text" name="fname"><br>
+			Last name: <input type="text" name="lname"><br>
+			E-mail: <input type="email" name="email" autocomplete="off"><br>
+			<input type="submit">
+		</form>
+	</div>
+	<hr>
+	<div>
+		<h3>novalidate</h3>
+		<form action="http://www.runoob.com/try/demo_source/demo-form.php" novalidate>
+			E-mail: <input type="email" name="email" ><br>
+			<input type="submit">
+		</form>
+	</div>
+	<hr>
+	<div>
+		<h3>autofocus</h3>
+		autofocus input: <input type="text" autofocus="true">
+	</div>
+	<hr>
+	<div>
+		<h3>pattern</h3>
+		<form action="http://www.runoob.com/try/demo_source/demo-form.php">
+		Username: <input type="text" name="usrname" required><br>
+		Step: <input type="number" name="points" step="3">
+		Country code: <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
+		<br>
+			<input type="submit">
+		</form>
+	</div>
+</body>
+</html>

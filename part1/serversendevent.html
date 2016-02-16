@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this is html5 server send event</title>
+</head>
+<body>
+  <p>所有主流浏览器均支持服务器发送事件，除了 Internet Explorer。</p>  
+  <div id="result"></div>
+  <footer>
+    <p>
+      <a href="http://www.runoob.com/html/html5-serversentevents.html">链接</a>
+    </p>
+  </footer>
+</body>
+<script>
+  if (typeof(EventSource)!=='undefined') {
+    var source = new EventSource('http://www.runoob.com/try/demo_source/demo_sse.php');
+    source.onmessage = function(){
+      document.getElementById('result').innerHTML+=event.data+'<br/>';
+    }
+  }
+</script>
+</html>
