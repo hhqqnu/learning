@@ -1,0 +1,17 @@
+{
+  "name": "part1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "message.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^4.4.3",
+    "mssql": "^3.1.0",
+    "rtf": "0.0.4",
+    "rtf2html": "^1.0.0"
+  }
+}
