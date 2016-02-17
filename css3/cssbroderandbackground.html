@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this is css3 background and border</title>
+  <style type="text/css">
+    div{
+      width: 200px;height: 100px;
+      text-align: center;
+      font-size: 12px;
+    }
+    #borderRadius{
+      border: 2px solid;
+      border-radius: 25px;
+    }
+    #borderImage{
+      border-image: url(http://www.w3school.com.cn/i/border.png) 30 30 round;
+    }
+  </style>
+</head>
+<body>
+ <ul>
+    <li>border-radius
+      <div id="borderRadius" >border-radius</div> 
+    </li>
+    <li>border-shadow
+      <div  style="box-shadow: 10px 10px 5px #888;background:#00ff00;">border-shadow</div>
+    </li>
+    <li>border-image
+      <div id="borderImage" ></div>
+    </li>
+  </ul> 
+
+  <style type="text/css">
+    .polaroid{
+      margin: 30px;
+      width: 294px;
+      height: 230px;
+      padding: 10px 10px 20px 10px;
+      border: 1px solid #bfbfbf;
+      background-color: white;
+      box-shadow: 2px 2px 3px #aaa;
+    }
+    .rotate_left{
+      transform:rotate(7deg);
+    }
+    .rotate_right{
+      transform:rotate(-8deg);
+    }
+  </style>
+  <hr/>
+   <div class="polaroid rotate_left">
+    <img src="http://www.w3school.com.cn/i/ballade_dream.jpg" alt="郁金香" width="284" height="213" />
+    <p class="caption">上海鲜花港的郁金香，花名：Ballade Dream。</p>
+  </div>
+
+    <div class="polaroid rotate_right">
+      <img src="http://www.w3school.com.cn/i/china_pavilion.jpg" alt="世博中国馆" width="284" height="213" />
+      <p class="caption">2010年上海世博会，中国馆。</p>
+    </div>
+    <hr/>
+    <h3>backgrund-size</h3>  
+    <style type="text/css">
+      .bSize{
+        background: url(http://www.w3school.com.cn/i/bg_flower.gif);
+        background-size: 63px 100px;
+        background-repeat: no-repeat;
+      }
+    </style>
+    <div class="bSize"></div>
+    原始: <img src="http://www.w3school.com.cn/i/bg_flower.gif">
+    <style type="text/css">
+      .bSize1{
+        background: url(http://www.w3school.com.cn/i/bg_flower.gif);
+        background-size: 35% 100%;
+        background-repeat: no-repeat;
+        height: 200px;
+        background-position: center;
+      }
+    </style>
+    <div class="bSize1">
+      <p>这是一个段落。</p>
+      <p>这是一个段落。</p>
+      <p>这是一个段落。</p>
+      <p>这是一个段落。</p>
+      <p>这是一个段落。</p>
+      <p>这是一个段落。</p>
+      <p>这是一个段落。</p>
+      <p>这是一个段落。</p>
+      <p>这是一个段落。</p>
+    </div>
+
+<style type="text/css">
+  #div1,#div2{
+    width: 400px;height: 200px;border: 1px solid #000;background-image: url(http://www.w3school.com.cn/i/bg_flower.gif);
+    background-repeat: no-repeat;background-position: top left;
+    padding: 35px
+  }
+  #div1{
+    background-origin: border-box;
+  }
+  #div2{
+    background-origin: content-box;
+  }
+</style>
+    <p>background-origin:border-box:</p>
+<div id="div1">
+这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。
+</div>
+
+<p>background-origin:content-box:</p>
+<div id="div2">
+这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。
+</div>
+
+
+<style type="text/css">
+  #div2background{
+    width: 600px;height: 300px;background-image:url(http://www.w3school.com.cn/i/bg_flower.gif),url(http://www.w3school.com.cn/i/bg_flower_2.gif);
+    background-size: 50px;
+  }
+</style>
+<div id="div2background"></div>
+
+</body>
+</html>
