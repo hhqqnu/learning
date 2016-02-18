@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this is css3 transition demo</title>
+  <style>
+  div{
+    width: 200px;height: 100px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 2px red;
+  }
+  #div1{
+   transition:width 2s,height 2s,transform 2s; 
+  }
+  #div1:hover{
+    width: 500px;
+    height: 300px;
+    transform: rotate(360deg);
+  }
+  #div2{
+    transition-property: all;
+    transition-duration: 2s;
+    transition-delay: 2s;
+    transition-timing-function: ease-out;
+  }
+  #div2:hover{
+    width: 300px;
+    height: 200px;
+    transform: translate(50px,50px);
+  }
+  </style>
+</head>
+<body>
+  <h3>transition</h3>
+  <div id="div1"></div>
+  <hr>
+  <div id="div2"></div>
+</body>
+</html>

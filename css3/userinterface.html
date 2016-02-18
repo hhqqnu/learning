@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this is css3 user interface demo</title>
+</head>
+<body>
+  <h3>resize</h3>
+  <style>
+  #divResize{
+    width: 200px;height: 100px;border: 1px solid #000;
+    resize: both;overflow: auto;
+  }
+  </style>
+  <div id="divResize"></div> 
+  <hr>
+  <h3>box sizing</h3> 
+  <style>
+  .div1{
+    width: 200px;height: 100px;border: 1px solid blue;
+  }
+  .div2{
+    width: 200px;height: 100px;border: 1px solid red;padding: 50px;
+  }
+  .div3{
+    width: 200px;height: 100px;border: 1px solid blue;
+    box-sizing: border-box;
+  }
+  .div4{
+    width: 200px;height: 100px;border: 1px solid red;padding: 50px;box-sizing: border-box;
+  }
+  </style>
+  <h2>Without box-sizing</h2>
+<div class="div1">This div is smaller (width is 300px and height is 100px).</div>
+<br>
+<div class="div2">This div is bigger (width is also 300px and height is 100px).</div>
+
+<h2>With box-sizing</h2>
+<div class="div3">Both divs are the same size now!</div>
+<br>
+<div class="div4">Hooray!</div>
+
+<hr>
+<style>
+  .container{
+    width: 30em;
+    border: 1em solid;
+  }
+  .box{
+    box-sizing: border-box;
+    width: 50%;
+    border: 1em solid red;
+    float: left;
+  }
+</style>
+<div class="container">
+  <div class="box">This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.This div occupies the left half.</div>
+  <div class="box">This div occupies the right half.This div occupies the right half.This div occupies the right half.This div occupies the right half.</div>
+  <div style="clear:both;"></div>
+</div>
+<hr>
+<h3>outline offset</h3>
+<p>outline-offset属性，轮廓与边框的区别：轮廓不占用空间，轮廓可能是非矩形</p>
+<style>
+  #dOutlineOffset{
+    width: 200px;height: 100px;border: 1px solid;
+    outline-color: red;
+    outline-width: 2px;
+    outline-style: dotted;
+    outline-offset: 15px;
+  }
+</style>
+<div id="dOutlineOffset"></div>
+
+
+
+</body>
+</html>
