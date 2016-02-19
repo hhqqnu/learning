@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title></title>
+ <!--  <link rel="stylesheet" href="portrait-screent.css" media="screen and (orientation:portrait)"> -->
+  <style>
+    body{
+      background-color: grey;
+    }
+    @media screen and (max-width:960px) {
+      body{
+        background-color: red;
+      }
+    }
+    @media screen and (max-width:768px){
+      body{
+        background-color:orange;
+      }
+    }
+    @media screen and (max-width:550px){
+      body{
+        background-color: yellow;
+      }
+    }
+    @media screen and (max-width:320px){
+      body{
+        background-color: green;
+      }
+    }
+    @media screen and (max-device-width:400px){
+      h1{color: white;}
+    }
+    .nav {
+      display: flex;
+      display: -webkit-flex;
+      /* justify-content: center; */
+      /* align-items: center; */
+     /*  flex-direction: row;
+         flex-direction: column;
+         flex-direction: row-reverse;
+         flex-direction: column-reverse;
+          */    }
+    .item{
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>this is media device</h1>  
+  <ul>
+    <li>固定布局，通过固定宽度+media query进行不同屏幕布局</li>
+    <li>流动布局，通过百分比+media query进行不同屏幕布局(目标元素宽度÷上下文元素宽度=百分比宽度)(目标元素尺寸÷上下文元素尺寸=百分比尺寸)</li>
+  </ul>
+  <hr>
+  <h3>多少文本溢出</h3>
+  <style>
+  body{
+    overflow: scroll;
+    -webkit-overflow-scrolling:touch;
+  }
+  .intwoline{
+    display: -webkit-box !important;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    word-break: break-all;
+
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+  }
+  </style>
+</body>
+<script>
+  //visual viewport
+  //layout viewport
+  console.log(screen.width,screen.height)
+  /*var div1 = document.getElementById('div1')
+  div1.addEventListener('touchstart',function(e){
+    console.log(e);
+  })
+  div1.addEventListener('touchmove',function(e){
+    e.preventDefault();
+  });
+  */
+  
+</script>
+</html>
