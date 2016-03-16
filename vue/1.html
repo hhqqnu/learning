@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    *{
+      margin: 0;padding:0;
+    }
+    .error{
+      font-size: 10px;
+      color: red;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <p class="error" v-show="!message">must input any message</p>
+
+
+    <h1>Input message:{{ message }}</h1>
+
+    <input type="text" v-model="message">
+
+
+    <button type="button" name="button" @click="count++">
+      Increment count:{{count}}
+    </button>
+    <button type="button" name="button" @click="upcount">
+      Increment count:{{count}}
+    </button>
+
+    <counter subject="prop content"></counter>
+
+
+    <p><h1>{{fullName}}</h1></p>
+    <p><h2>{{fullName2}}</h1></p>
+    <input type="text" v-model="first">
+    <input type="text" v-model="last">
+  </div>
+
+<template id="counterTemplate">
+  <h1>this is component template</h1>
+  <p>{{subject}}</p>
+</template>
+
+</body>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.17/vue.js" charset="utf-8"></script>
+<script>
+  Vue.component('counter',{
+    template:'#counterTemplate',
+    props:['subject']
+  });
+
+
+  new Vue({
+    el:'#app',
+    data:{
+      message:'',
+      count:0,
+      first:'tom',
+      last:'zhu',
+      fullName:'tom zhu'
+    },
+    methods:{
+      upcount:function(){
+        this.count++;
+      }
+    },
+    watch:{
+      first:function(first){
+        this.fullName = first + ' ' + this.last;
+      },
+      last:function(last){
+        this.fullName = this.first + ' ' + last;
+      }
+    },
+    computed:{
+      fullName2:function(){
+        return this.first +' '+this.last;
+      }
+    }
+  });
+</script>
+</html>

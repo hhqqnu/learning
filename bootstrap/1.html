@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <title>this is bootstrap first demo</title>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+   <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    .show-grid[class^=col-]{
+      padding: 10px
+      padding-bottom:10px;background-color: rgba(86,61,124,.15);
+      border: 1px solid rgba(86,61,124,.2);
+    }
+    </style>
+</head>
+<body>
+<div class="row">
+  <div class="col-xs-1 show-grid">.col-xs-1</div>
+  <div class="col-xs-1 show-grid">.col-xs-1</div>
+  <div class="col-xs-1 show-grid">.col-xs-1</div>
+  <div class="col-xs-1 show-grid">.col-xs-1</div>
+  <div class="col-xs-1 show-grid">.col-xs-1</div>
+  <div class="col-xs-1 show-grid">.col-xs-1</div>
+  <div class="col-xs-1 show-grid">.col-xs-1</div>
+  <div class="col-xs-1 show-grid">.col-xs-1</div>
+  <div class="col-xs-1 show-grid">.col-xs-1</div>
+  <div class="col-xs-1 show-grid">.col-xs-1</div>
+  <div class="col-xs-1 show-grid">.col-xs-1</div>
+  <div class="col-xs-1 show-grid">.col-xs-1</div>
+</div>
+<div class="row">
+  <div class="col-xs-8 show-grid">.col-xs-8</div>
+  <div class="col-xs-4 show-grid">.col-xs-4</div>
+</div>
+
+
+<hr>
+<div class="container">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail" placeholder="xx@xx.com"></input>
+  </div>
+</form>
+
+<form class="form-inline">
+  <div class="form-group">
+    <label for="exampleInputName2">Name</label>
+    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+  </div>
+  <button type="submit" class="btn btn-default">Send invitation</button>
+</form>
+
+<div class="form-group has-success has-feedback">
+  <label class="control-label" for="inputSuccess2">Input with success</label>
+  <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+  <span id="inputSuccess2Status" class="sr-only">(success)</span>
+</div>
+
+<img src="http://www.runoob.com/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" class="img-responsive">
+</div>
+
+
+   <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+   <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</body>
+</html>

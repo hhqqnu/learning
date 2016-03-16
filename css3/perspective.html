@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this is css3 perspective 3d demo</title>
+  <style type="text/css">
+
+    @keyframes rotate {
+          0% {
+              transform: rotateX(0deg) rotateY(0deg);
+          }
+          100% {
+              transform: rotateX(360deg) rotateY(360deg);
+          }
+      }
+
+    html{
+      background: linear-gradient(yellow 0%,#000 80%);
+      height: 100%;
+    }
+    .wrap{
+      perspective:1000px;
+      margin-top: 150px;
+      perspective:1000px;
+    }
+    .cube {
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      position: relative;
+      transform-style: preserve-3d;
+      transform:rotateX(-20deg) rotateY(-70deg);
+      animation:rotate 20s infinite linear;
+    }
+    .cube > div {
+      width: 100%;
+      height: 100%;
+      background-color: #333;
+      position: absolute;
+      opacity: 0.9;
+      border: 1px solid #fff;
+      text-align: center;
+      line-height: 200px;
+      font-size: 36px;
+      font-weight: bold;
+      font-family:monaco;
+      color: #fff;
+      display: none;
+    }
+    .cube .out-front{
+      display: block;
+      transform:translateZ(100px);
+    }
+    .cube .out-back{
+      display: block;
+      transform: translateZ(-100px) rotateY(180deg);
+    }
+    .cube .out-left{
+      display: block;
+      transform: rotateY(90deg) translateZ(100px);
+    }
+    .cube .out-right{
+      display: block;
+      transform: rotateY(90deg) translateZ(-100px);
+    }
+    .cube .out-top {
+      display: block;
+      transform: rotateX(90deg) translateZ(100px);
+    }
+    .cube .out-bottom{
+      display: block;
+      transform: rotateX(90deg) translateZ(-100px);
+    }
+  </style>
+</head>
+<body>
+ <div class="wrap">
+    <div class="cube">
+      <div class="out-front">front</div>
+      <div class="out-back">back</div>
+      <div class="out-left">left</div>
+      <div class="out-right">right</div>
+      <div class="out-top">top</div>
+      <div class="out-bottom">bottom</div>
+    </div>
+  </div> 
+</body>
+</html>
