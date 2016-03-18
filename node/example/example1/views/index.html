@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+	<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
+	<style>
+		body {
+			padding-top: 50px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="form-group">
+		<label for="animalInput">动物名称：</label>
+		<input type="text" id="animalInput" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="animalSelect">动物类型：</label>
+		<select id="animalSelect" class="form-control">
+		</select>
+	</div>
+	<div class="form-group">
+		<button class="btn btn-primary" id="saveAnimal">保存</button>
+	</div>
+</div>
+<div class="container">
+	<ul class="list-group" id="animalList">
+	</ul>
+</div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+<script>
+	!function ($, win) {
+		$(function () {
+			var animalInput = $('#animalInput'),
+					animalSelect = $('#animalSelect'),
+					animalList = $('#animalList'),
+					saveAnimal = $('#saveAnimal');
+			$.get('/animal/api/types', function (data) {
+				var oHtml = [];
+				data.forEach(function (o) {
+					oHtml.push('<option  value="' + o + '">' + o + '</option>');
+				});
+				$(oHtml.join('')).appendTo(animalSelect.empty());
+
+				saveAnimal.on('click', function () {
+					var name = animalInput.val(), type = animalSelect.val();
+					if (!name) {
+						alert('name is empty!');
+						return;
+					}
+					if (!type) {
+						alert('type is empty!');
+						return;
+					}
+					$.post('/animal/api', {name: name, type: type}, function (json) {
+						if (json.error) {
+							alert(json.error);
+							return;
+						}
+						var o = json.data;
+						var newObj = $('<li class="list-group-item" id="' + o._id + '"><span>' + o.name + '</span> - <span>' + o.type + '</span></li>');
+						newObj.appendTo(animalList);
+						animalInput.val('');
+					});
+				});
+			});
+
+			$.get('/animal/api/', function (data) {
+				var oHtml = [];
+				data.forEach(function (o) {
+					oHtml.push('<li class="list-group-item" id="' + o._id + '"><span>' + o.name + '</span> - <span>' + o.type + '</span></li>');
+				});
+				$(oHtml.join('')).appendTo(animalList.empty());
+			});
+
+
+		});
+	}(jQuery, window);
+</script>
+<!--<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.js"></script>-->
+</html>
