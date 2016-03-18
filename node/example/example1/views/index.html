@@ -23,7 +23,12 @@
 	</div>
 	<div class="form-group">
 		<button class="btn btn-primary" id="saveAnimal">保存</button>
+		<button class="btn btn-success" id="filterAnimal">按类型查询</button>
+		<button class="btn btn-warning" id="allAnimal">显示所有</button>
+
 	</div>
+
+
 </div>
 <div class="container">
 	<ul class="list-group" id="animalList">
@@ -37,7 +42,9 @@
 			var animalInput = $('#animalInput'),
 					animalSelect = $('#animalSelect'),
 					animalList = $('#animalList'),
-					saveAnimal = $('#saveAnimal');
+					saveAnimal = $('#saveAnimal'),
+					filterAnimal = $('#filterAnimal'),
+					allAnimal = $('#allAnimal');
 			$.get('/animal/api/types', function (data) {
 				var oHtml = [];
 				data.forEach(function (o) {
@@ -66,16 +73,38 @@
 						animalInput.val('');
 					});
 				});
-			});
 
-			$.get('/animal/api/', function (data) {
-				var oHtml = [];
-				data.forEach(function (o) {
-					oHtml.push('<li class="list-group-item" id="' + o._id + '"><span>' + o.name + '</span> - <span>' + o.type + '</span></li>');
+				filterAnimal.on('click', function () {
+					var type = animalSelect.val();
+					if (!type) {
+						alert('请选择类型');
+						return;
+					}
+					$.get('/animal/api/' + type, function (data) {
+						var oHtml = [];
+						data.forEach(function (o) {
+							oHtml.push('<li class="list-group-item" id="' + o._id + '"><span>' + o.name + '</span> - <span>' + o.type + '</span></li>');
+						});
+						$(oHtml.join('')).appendTo(animalList.empty());
+					});
 				});
-				$(oHtml.join('')).appendTo(animalList.empty());
+
+				allAnimal.on('click', function () {
+					getAll();
+				});
 			});
 
+			function getAll() {
+				$.get('/animal/api/', function (data) {
+					var oHtml = [];
+					data.forEach(function (o) {
+						oHtml.push('<li class="list-group-item" id="' + o._id + '"><span>' + o.name + '</span> - <span>' + o.type + '</span></li>');
+					});
+					$(oHtml.join('')).appendTo(animalList.empty());
+				});
+			}
+
+			getAll();
 
 		});
 	}(jQuery, window);
