@@ -1,9 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var multer = require('multer');
-var users = require('./components/server_user');
-var roleApi = require('./components/role_api');
-var animalApi = require('./components/animalapi');
+var users = require('./app/components/server_user');
+var roleApi = require('./app/components/role_api');
+var animalApi = require('./app/components/animalapi');
 
 var app = express();
 
