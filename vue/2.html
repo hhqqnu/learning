@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+   <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style>
+  .expand-transition {
+    transition:all .3s ease;
+    height:30px;
+    padding: 10px;
+    background-color: #eee;
+    overflow: hidden;
+  }
+
+  .expand-enter, .expand-leave{
+    height: 0;padding: 0 10px;opacity: 0;
+  }
+  </style>
+</head>
+<body>
+  <!-- <div id="demo">{{fullName}}</div>
+  <div v-bind:class="classObject"></div>
+   <div v-bind:style="{color:activeColor,fontSize:fontSize+'px'}"></div>
+<div v-for="(index,item) in items">
+  {{index}} {{item.message}}
+</div>
+
+<div v-for="item of items">
+  {{item | json}}
+</div> -->
+<div class="container">
+  <ul id="repeat-object" class="list-group">
+    <li v-for="value in object" class="list-group-item">
+      [{{$index}}] - {{$key}} : {{value}}
+    </li>
+  </ul>
+  <ul id="repeate-object2" class="list-group">
+    <li v-for="(key,value) in object" class="list-group-item">
+      {{$index}} - {{$key}} : {{value}}
+    </li>
+  </ul>
+</div>
+
+<div class="container" id="filter-by-example">
+
+<div class="form-inline" style="margin-bottom: 10px;">
+ <div class="form-group">
+   <label for="filterId">filter:</label>
+   <input class="form-control" id="filterId" v-model="name"/>
+   <button class="btn btn-primary" v-on:click="order = order * -1">排序</button>
+
+   <button class="btn btn-success" @click="greet">DOM事件</button>
+   <button class="btn btn-info" @click="say('Hi',$event)">Say Hi</button>
+   <button class="btn btn-warning" @click="say('What',$event)">Say What</button>
+    <div class="checkbox">
+        <label>
+          <input type="checkbox" v-model="checked">{{checked}}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <ul class="list-group">
+     <li class="list-group-item" v-for="user in users | orderBy 'name' order | filterBy name in 'name' ">{{user.name}}</li>
+   </ul>
+
+  <div class="container">
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Jack" v-model="checkedNames"> Jack
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="John" v-model="checkedNames"> john
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="Mike" v-model="checkedNames"> Mike
+        </label>
+      </div>
+    </div>
+    <span>Checked names: {{checkedNames | json }}</span>
+  </div>
+  
+
+  <div class="container">
+    <div class="form-group">
+      <label>
+        <input type="radio" name="radiovue" value="one" v-model="picked"> One
+      </label>
+      <label>
+        <input type="radio" name="radiovue" value="two" v-model="picked"> Two
+      </label>
+    </div>
+    <span>Picked : {{ picked | json }}</span>
+  </div>
+  <div class="container">
+    <div class="from-group">
+      <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option">
+          {{option.text}}
+        </option>
+      </select>
+      <span>Selected:{{selected | json}}</span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="form-group">
+      <input class="form-control" type="text" v-model="msg" lazy>
+      <span>Input msg : {{msg}}</span>
+      <input type="text" class="form-control" v-model="userInfo.age" number>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="page-header"><h1>Transition</h1></div>
+  <div v-if="userInfo.show"  transition=expand>Show</div>
+  <div class="checkbox">
+    <label>
+       <input type="checkbox" v-model="userInfo.show"> {{userInfo.show}}
+    </label>
+  </div>
+
+</div>
+
+</div>
+<div class="container">
+  <div id="mount-point"></div>
+</div>
+
+
+
+
+</body>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.17/vue.js" charset="utf-8"></script>
+<script>
+
+var Profile = Vue.extend({
+  template:'<p>{{firstName}} {{lastName}} aka {{alias}}</p>'
+});
+
+var profile = new Profile({
+  data:{
+    firstName:'tom',
+    lastName:'zhu',
+    alias:'zhuzhu'
+  }
+});
+profile.$mount('#mount-point');
+
+  var data = {
+     object:{
+          firstName:'Tom',
+          lastName:'zhu',
+          age:30
+        }
+  };
+  var vm = new Vue({
+    el:'#repeat-object',
+    data:data
+  });
+  var vm1 = new Vue({
+    el:'#repeate-object2',
+    data:data
+  });
+  var vm2 = new Vue({
+    el:'#filter-by-example',
+    data:{
+      order:1,
+      name:'',
+      checked:false,
+      checkedNames:[],
+      picked:'',
+      selected:{ text:'Two', value:'B'},
+      msg:null,
+      userInfo:{
+        age:10,
+        show:false
+      },
+      options:[
+        { text:'one', value:'A'},
+        { text:'Two', value:'B'},
+        { text:'Three', value:'C'}
+      ],
+      users:[
+        {name:'Bruce'},
+        {name:'Chuck'},
+        {name:'Jackie'}
+      ]
+    },
+    methods:{
+      greet:function(event){
+        alert('Hello '+this.users[0].name +'!');
+        alert(event.target.tagName);
+      },
+      say:function(msg,event){
+        event.preventDefault();
+        alert(msg);
+      }
+    }
+  })
+
+
+  /*var vm = new Vue({
+    data:{
+      firstName:'tom',
+      lastName:'zhu',
+      fullName:'tom zhu'
+    }
+  });
+  vm.$watch('firstName',function(val){
+    this.fullName = val +' '+ this.lastName;
+  });
+  vm.$watch('lastName',function(val){
+    this.fullName = ths.firstName + ' ' + val;
+  })*/
+  /*var vm = new Vue({
+    computed:{
+      fullName:{
+        get:function(){
+          return this.firstName +' ' + this.lastName;
+        },
+        set:function(newValue){
+          var names = newValue.split(' ');
+          this.firstName = names[0];
+          this.lastName = name[names.length - 1];
+        }
+      }
+    }
+  })*/
+  /*var vm = new Vue({
+    computed:{
+      fullName:function(){
+        return this.firstName +' '+this.lastName;
+      }
+    }
+  })*/
+</script>
+</html>

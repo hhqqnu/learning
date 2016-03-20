@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+ <div id="app">
+   <span>This will never change : {{*noUpdata}}</span>
+   <br>
+   <span>{{{htmlData}}}</span>
+
+
+   <div id="item-{{id}}">
+     this is div attribute id value from vue data
+   </div>
+   <div>
+     <span>{{ ok ? 'yes' : 'no'}}</span>
+   </div>
+   <div>message reverse:{{message.split('').reverse().join('')}}</div>
+
+
+    <hr/>
+    <h1>Directives</h1>
+    <p <div v-if="greeting">Directives Hello</div></p>
+
+
+ </div> 
+</body>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.17/vue.js"></script>
+<script>
+  var vue = new Vue({
+    el:'#app',
+    data:{
+      htmlData:'<h1>this is html content</h1>',
+      noUpdata:'no up message',
+      id:'id1',
+      message:'this is message split reverse join'
+    }
+  });
+</script>
+</html>

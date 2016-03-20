@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>todo-home</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
+    <ul>
+        <li v-for="todo in todos">
+            <span>{{todo.text}}</span>
+            <button @click="removeTodo($index)">X</button>
+        </li>
+    </ul>
+</div>
+
+
+</body>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.17/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            todos: [],
+            newTodo: ''
+        },
+        methods: {
+            addTodo: function () {
+                var text = this.newTodo.trim();
+                if (text) {
+                    this.todos.push({text:text});
+                    this.newTodo = '';
+                }
+            },
+            removeTodo: function (index) {
+               this.todos.splice(index,1);
+              //this.todos.$romove(index);
+            }
+        }
+    })
+</script>
+</html>
