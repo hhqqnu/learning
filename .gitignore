@@ -1,6 +1,10 @@
 node_modules
 .idea
 .git
+<<<<<<< HEAD
 *.log
 logs
 npm-debug.log
+=======
+.vscode
+>>>>>>> b917b36f4835f4227c609a053ae95b2810af6b69
